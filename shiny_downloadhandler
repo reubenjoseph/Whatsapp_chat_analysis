@@ -1,0 +1,27 @@
+  output$report <- downloadHandler(
+
+    filename = "report.html",
+    content = function(file) {
+
+      tempReport <- file.path(tempdir(), "report.Rmd")
+      file.copy("report.Rmd", tempReport, overwrite = TRUE)
+      temp<-input$file
+      if(n_distinct(chat()$author)==2){
+        params <- list(p1=plot1(), p2=plot2(),p3=plot3(), p4=plot4(),p5=plot5(), p6=plot6(),
+                       p7=plot10(),p8=plot11(), p9=plot5_markdown(),
+                       t1=table1(),t2=table2(),t3=table5(),t4=table6(),file=temp$name,duration=input$duration,n=users())
+      }
+      else
+      {
+        params <- list(p1=plot1(), p2=plot2(),p3=plot3(), p4=plot4(),p5=plot5(), p6=plot6_markdown(),
+                       p7=plot7(),p8=plot8(), p9=plot9(),
+                       t1=table1(),t2=table2(),t3=table3(),file=temp$name,duration=input$duration,n=users())
+      }
+
+      rmarkdown::render(tempReport, output_file = file,
+                        params = params,
+                        envir = new.env(parent = globalenv())
+      )
+    }
+    
+  )
