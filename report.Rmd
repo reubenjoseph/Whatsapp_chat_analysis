@@ -1,0 +1,119 @@
+---
+title: "Whatsapp chat Analysis Report"
+params:
+  file: NA
+  duration: NA
+  p1: NA
+  p2: NA
+  p3: NA
+  p4: NA
+  p5: NA
+  p6: NA
+  p7: NA
+  p8: NA
+  p9: NA
+  p10: NA
+  p11: NA
+  p12: NA
+  t1: NA
+  t2: NA
+  t3: NA
+  t4: NA
+  t5: NA
+  t6: NA
+  t7: NA
+  n: NA
+output:  html_document
+---
+
+
+**Analysis on `r params$file` for the `r params$duration`**
+<br/>
+[Click here to analyse other whatsapp chats ](https://reubenjoseph13.shinyapps.io/Whatsapp_Analyzer/)
+
+
+<center>
+```{r echo=FALSE,out.width="50%" }
+#plot(rnorm(params$n), rnorm(params$n))
+if(params$n==2)
+{
+params$t3
+#params$t4
+}
+if(params$n!=2)
+{
+library(knitr)
+#final<-rbind(params$t1,params$t2)
+t2<-params$t2 %>% mutate(n=NULL)
+kable(list(t2,params$t1))
+}
+
+```
+
+```{r echo=FALSE,out.width="50%" }
+#plot(rnorm(params$n), rnorm(params$n))
+if(params$n==2)
+{
+#params$t3
+params$t4
+}
+
+```
+
+```{r echo=FALSE,out.width="50%" }
+#plot(rnorm(params$n), rnorm(params$n))
+
+if(params$n!=2)
+{
+library(knitr)
+#final<-rbind(params$t1,params$t2)
+t1<-params$t1 %>% mutate(n=NULL)
+kable(list(t1,params$t2))
+}
+
+
+```
+
+</center>
+# Generic Plots
+
+```{r message=FALSE, warning=FALSE,echo=FALSE, figures1, fig.show="hold", out.width="50%"}
+# The `params` object is available in the document.
+params$p1
+params$p2
+
+```
+<hr>
+
+```{r echo=FALSE, figures2, fig.show="hold", out.width="50%"}
+# The `params` object is available in the document.
+params$p3
+params$p4
+
+```
+<hr>
+```{r echo=FALSE, figures3, fig.show="hold", out.width="50%"}
+# The `params` object is available in the document.
+params$p5
+params$p6
+```
+
+<hr>
+
+```{r echo=FALSE, figures5, fig.show="hold", out.width="50%"}
+# The `params` object is available in the document.
+if(params$n==2)
+{
+params$p9
+}
+
+```
+<center> 
+<h4>
+
+[Click here to analyse other whatsapp chats with more detailed comparisons ](https://reubenjoseph13.shinyapps.io/Whatsapp_Analyzer/)
+
+Developed by [Reuben Joseph](https://www.linkedin.com/in/reuben--joseph/)
+
+</h4>
+</center>
